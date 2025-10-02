@@ -1,0 +1,2 @@
+[console_scripts]
+multi = paquete_minimo.main:main

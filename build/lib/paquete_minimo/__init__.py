@@ -1,0 +1,1 @@
+from paquete_minimo import main

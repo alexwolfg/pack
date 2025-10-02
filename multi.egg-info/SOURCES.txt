@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+multi.egg-info/PKG-INFO
+multi.egg-info/SOURCES.txt
+multi.egg-info/dependency_links.txt
+multi.egg-info/entry_points.txt
+multi.egg-info/top_level.txt
+paquete_minimo/__init__.py
+paquete_minimo/main.py
