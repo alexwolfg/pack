@@ -60,3 +60,6 @@ En el archivo de configuracion, debemos indicar bien la ruta del ejecutable hast
 ```bash
 multi = paquete_minimo.main:main
 ```
+
+
+## TODO: Explain Dockerfile and solve pip sudo user.
