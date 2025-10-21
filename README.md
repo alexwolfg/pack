@@ -43,6 +43,7 @@ Despues de tener el fichero de configuracion, hay que crear el binario (en nuest
 El whl. se obtiene de la siguiente manera.
 
 ```bash
+python -m pip install build
 python -m build --wheel
 ```
 Esto creara automaticamente solo el archivo .whl (y no el source distribution tar.gz) en el archivo `dist` que se creara automaticamente.
