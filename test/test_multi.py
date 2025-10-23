@@ -1,6 +1,5 @@
 import subprocess
 import pytest
-import paquete_minimo.main as paq
 
 
 
