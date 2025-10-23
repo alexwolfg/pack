@@ -38,4 +38,4 @@ jobs:
     - name: Debug output
       shell: bash
       run: |
-        multi -m 2 -p 98 -o 2 
+        pytest
