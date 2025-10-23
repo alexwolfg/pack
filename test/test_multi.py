@@ -1,10 +1,10 @@
 import subprocess
 import pytest
+from paquete_minimo.main import main
 
-
-
-def test_first_number()-> None:
-    rc = subprocess.run(args= [f"multi -m 2"], shell=True)
+@pytest.mark.parametrize("option", "number", [( "-m", "2")])
+def test_first_number(option,number)-> None:
+    rc = subprocess.run(args= [f"multi {option} {number}"], shell=True)
     assert rc == 0
                                
 @pytest.mark.parametrize("option", "number", [( "-p", "5"), ("-o", "7")])
