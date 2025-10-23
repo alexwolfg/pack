@@ -2,7 +2,7 @@ import subprocess
 import pytest
 import sys
 
-sys.path.insert(0, "../paquete_minimo")
+sys.path.insert(0, "../")
 
 from paquete_minimo.main import main
 
