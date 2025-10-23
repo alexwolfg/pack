@@ -43,6 +43,7 @@ Despues de tener el fichero de configuracion, hay que crear el binario (en nuest
 El whl. se obtiene de la siguiente manera.
 
 ```bash
+python -m pip install build
 python -m build --wheel
 ```
 Esto creara automaticamente solo el archivo .whl (y no el source distribution tar.gz) en el archivo `dist` que se creara automaticamente.
@@ -59,3 +60,9 @@ En el archivo de configuracion, debemos indicar bien la ruta del ejecutable hast
 ```bash
 multi = paquete_minimo.main:main
 ```
+
+
+## TODO: Explain Dockerfile and solve pip sudo user.
+
+Possible solution for the pip sudo user since we are copying the files and executing pip before creating the user.
+https://stackoverflow.com/questions/68673221/why-do-i-still-get-a-warning-about-running-pip-as-the-root-user-inside-a-doc
