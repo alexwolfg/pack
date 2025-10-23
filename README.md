@@ -63,3 +63,6 @@ multi = paquete_minimo.main:main
 
 
 ## TODO: Explain Dockerfile and solve pip sudo user.
+
+Possible solution for the pip sudo user since we are copying the files and executing pip before creating the user.
+https://stackoverflow.com/questions/68673221/why-do-i-still-get-a-warning-about-running-pip-as-the-root-user-inside-a-doc
