@@ -17,8 +17,6 @@ jobs:
           echo "$GITHUB_ACTOR"
   joke:
     runs-on: ubuntu-latest
-    permissions:
-      models: read
     steps:
       - name: ask AI
         id: ai-response
