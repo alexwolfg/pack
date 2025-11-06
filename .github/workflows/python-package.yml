@@ -15,4 +15,24 @@ jobs:
         run: |
           echo "$MY_ENV"
           echo "$GITHUB_ACTOR"
+  joke:
+    runs-on: ubuntu-latest
+    permissions:
+      models: read
+    steps:
+      - name: ask AI
+        id: ai-response
+        uses: actions/ai-inference@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          prompt: Give me a programming joke
+          
+      - name: Display the AI Response
+        run: | 
+          echo "AI Response" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "${{ steps.ai-response.outputs.jokeee }}" >> $GITHUB_STEP_SUMMARY
+          
+      
+    
       
