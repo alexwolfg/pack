@@ -9,3 +9,6 @@ jobs:
     steps:
       - name: Say smth
         run: echo "Hi there"
+      - run: ls -l
+      - uses: actions/checkout@v5
+      - run: ls -l
