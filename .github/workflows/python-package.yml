@@ -10,11 +10,12 @@ on:
 
 jobs:   
   run_container:
+    if: ${{ github.ref_name == 'feature/dockerization'}}
     runs-on: ubuntu-latest
     steps:
     - name: Download the image
       id: downloading-image
-      uses: alexwolfg/action-download-artifact@v3
+      uses: dawidd6/action-download-artifact@v3
       with:
         workflow: docker-image.yml
         name: docker-image
