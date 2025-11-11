@@ -1,37 +1,33 @@
-name: Started with workflows
+name: Testout the package
 
 on:
   workflow_dispatch:
 
-jobs:
-  first_job:
+jobs:   
+  run_container:
     runs-on: ubuntu-latest
-    env:
-      MY_ENV: "Wolf"
     steps:
-      - name: Say smth
-        run: echo "Hi there"
-      - name: run a multiple script
-        run: |
-          echo "$MY_ENV"
-          echo "$GITHUB_ACTOR"
-  joke:
-    runs-on: ubuntu-latest
-    permissions:
-      models: read
-    steps:
-      - name: ask AI
-        id: ai-response
-        uses: actions/ai-inference@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          prompt: Give me a programming joke
-          
-      - name: Display the AI Response
-        run: | 
-          echo "AI Response" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "${{ steps.ai-response.outputs.response }}" >> $GITHUB_STEP_SUMMARY
+    - name: Download the image
+      id: downloading-image
+      uses: alexwolfg/action-download-artifact@v3
+      with:
+        workflow: docker-image.yml
+        name: docker-image
+        path: .
+
+    - name: Load image into Docker
+      run: |
+          docker load -i multi.tar
+          docker images
+
+    - name: Run container image
+      run: |
+        echo "Running image multi.tar from previous step"
+        docker run -rm multi:$(date +%s)
+        multi -m 2 -p 4 -o 8
+
+
+      
           
       
     
