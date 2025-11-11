@@ -2,6 +2,11 @@ name: Testout the package
 
 on:
   workflow_dispatch:
+    inputs:
+      environment:
+        required: true
+        default: "feature/dockerization"
+
 
 jobs:   
   run_container:
