@@ -10,7 +10,7 @@ on:
 
 jobs:   
   run_container:
-    if: ${{ github.ref_name == 'feature/dockerization'}}
+    if: ${{ github.ref_name == github.event.inputs.environment }}
     runs-on: ubuntu-latest
     steps:
     - name: Download the image
