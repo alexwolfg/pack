@@ -30,7 +30,7 @@ jobs:
     - name: Run container image
       run: |
         echo "Running image multi.tar from previous step"
-        docker run -rm multi:$(date +%s)
+        docker run --rm multi:$(date +%s)
         multi -m 2 -p 4 -o 8
 
 
