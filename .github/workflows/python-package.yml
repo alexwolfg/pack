@@ -13,14 +13,23 @@ jobs:
     if: ${{ github.ref_name == github.event.inputs.environment }}
     runs-on: ubuntu-latest
     steps:
-    - name: Trigger docker build
-      id: trigger-docker
-      uses: peter-evans/workflow-dispatch@v1
-      with:
-        token: ${{ secrets.GITHUB_TOKEN}}
-        repository: alexwolfg/pack
-        workflow: docker-image.yml
-        ref: ${{ github.event.inputs.environment }}
+      - name: Trigger docker build
+        id: trigger-docker
+        uses: peter-evans/repository-dispatch@v4
+        with:
+          token: ${{ secrets.PAT }}
+          repository: alexwolfg/pack
+          event-type: trigger-build-image
+          client-payload: '{"ref":"feature/dockerization"}'
+    # - name: Trigger docker build
+    #   id: trigger-docker
+    #   uses: peter-evans/workflow-dispatch@v1
+    #   with:
+    #     token: ${{ secrets.GITHUB_TOKEN}}
+    #     repository: alexwolfg/pack
+    #     workflow: docker-image.yml
+    #     ref: ${{ github.event.inputs.environment }}
+   
 
     - name: Wait a bit for the build workflow to finish
       run: sleep 15
