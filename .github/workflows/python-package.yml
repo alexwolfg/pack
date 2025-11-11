@@ -43,8 +43,7 @@ jobs:
     - name: Run container image
       run: |
         echo "Running image multi.tar from previous step"
-        docker run -it --rm multi:latest
-        multi -m 2 -p 4 -o 8
+        docker run --rm multi:latest multi -m 2 -p 4 -o 8
 
 
       
