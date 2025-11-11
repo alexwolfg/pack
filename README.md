@@ -50,7 +50,7 @@ Esto creara automaticamente solo el archivo .whl (y no el source distribution ta
 Tambien se puede especificar otro lugar para el .whl con la option `build -o /destination`.
 A continuacion lo ultimo que habria que realizar es instalar el paquete.
 ```bash
-pip install /dist/* || pip install --force-reinstall dist/* (si ya hay una version del paquete disponible y hay una update)
+pip install dist/* || pip install --force-reinstall dist/* (si ya hay una version del paquete disponible y hay una update)
 ```
 
 Para testearlo se puede crear un virtualenv en python y ejecutarlo alli.
