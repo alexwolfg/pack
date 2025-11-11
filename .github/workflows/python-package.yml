@@ -13,6 +13,18 @@ jobs:
     if: ${{ github.ref_name == github.event.inputs.environment }}
     runs-on: ubuntu-latest
     steps:
+    - name: Trigger docker build
+      id: trigger-docker
+      uses: peter-evans/workflow-dispatch@v1
+      with:
+        token: ${{ secrets.GITHUB_TOKEN}}
+        repository: alexwolfg/pack
+        workflow: docker-image.yml
+        ref: ${{ github.event.inputs.environment }}
+
+    - name: Wait a bit for the build workflow to finish
+      run: sleep 15
+
     - name: Download the image
       id: downloading-image
       uses: dawidd6/action-download-artifact@v3
