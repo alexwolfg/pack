@@ -1,0 +1,7 @@
+services:
+  hosts:
+    image: weibeld/ubuntu-networking:latest
+    command: tail -F anything
+  switch:
+    image: weibeld/ubuntu-networking:latest
+    command: tail -F anything
