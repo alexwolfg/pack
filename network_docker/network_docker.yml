@@ -1,7 +1,37 @@
 services:
-  hosts:
-    image: weibeld/ubuntu-networking:latest
+  host1:
+    image: ekellercu/network-testing:v0.1
+    cap_add:
+    - NET_ADMIN
     command: tail -F anything
+    volumes: 
+      - space:/usr/host1
+  host2:
+    image: ekellercu/network-testing:v0.1
+    cap_add:
+    - NET_ADMIN
+    command: tail -F /dev/null
+    volumes: 
+      - space:/usr/host2
+  host3:
+    image: ekellercu/network-testing:v0.1
+    cap_add:
+    - NET_ADMIN
+    command: tail -F anything
+    volumes: 
+      - space:/usr/host3
   switch:
-    image: weibeld/ubuntu-networking:latest
+    image: ekellercu/network-testing:v0.1
+    cap_add:
+    - NET_ADMIN
     command: tail -F anything
+    volumes: 
+      - space:/usr/switch
+
+volumes:
+  space:
+
+#links:
+#  - endpoints: ["host1:eth1", "switch:eth1"]
+#  - endpoints: ["host2:eth2", "switch:eth2"]
+#  - endpoints: ["host3:eth3", "switch:eth3"]
